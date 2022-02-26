@@ -34,6 +34,7 @@ contract LibraryRecord {
     }
 
     function getRecord(uint _index) public view onlylibrarian() returns(Student memory) {
+        require(_index < currentID, "limit exceeded");
         Student storage student = studentInfo[_index];
         return student;
     }
